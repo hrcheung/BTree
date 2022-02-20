@@ -121,6 +121,8 @@ final class Btree {
     //
     //
     // To be coded .................
+    //when the value comes from Insert, we are always inserting into root pointer.
+
 
     if (this.nodes[pointer].size==0){ //insert first root pointer into nodes: null exception
       this.nodes[pointer].values[0]=value; //directly put the value into values array
@@ -144,7 +146,19 @@ final class Btree {
         this.nodes[pointer].size+=1; //size increased by 1
         return -1; //everything is done
       }
-      else{ // no space left
+      else{ // no space left  ---- note: now we are on the leaf level
+        //we need to
+        //1. split
+        //   - create a new leaf to distribute values;
+        //   - create a new parent node to store the mid value
+        //   - store children index in the new parent node
+        //2. merge
+        //   we find that, if the current pointer is a leaf node, this means we are the first level!
+        //   we need to go back and update to a new root!
+        //
+        //   what if we are not leaf? This means we need to go down to find children!
+
+
         int new_node_pointer = initNode();  //create a new node and return its pointer
         int split=NODESIZE/2; //split denotes how many values put in the left split node
         //distribute values

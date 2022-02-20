@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="second crashed attempts...">
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Btree.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Btree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/BtreeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/BtreeTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Btree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Btree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BtreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BtreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +29,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="25MozUTaE2zLrub8n09SEOVbSKb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -80,8 +70,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1645346578493</updated>
-      <workItem from="1645346581756" duration="1658000" />
+      <workItem from="1645346581756" duration="1811000" />
+      <workItem from="1645381516542" duration="1355000" />
     </task>
+    <task id="LOCAL-00001" summary="second crashed attempts...">
+      <created>1645348356983</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1645348356984</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,5 +96,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="second crashed attempts..... so sad" />
+    <MESSAGE value="second crashed attempts..." />
+    <option name="LAST_COMMIT_MESSAGE" value="second crashed attempts..." />
   </component>
 </project>
