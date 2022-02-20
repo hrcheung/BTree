@@ -27,7 +27,8 @@ final class Btree {
 
   /* Number of currently used values. */
   private int cntValues;
-  private int overflowValue; //used to store overflowed value
+  private Node potentialParent; //used to store overflowed parent
+  private int overflowValue;
 
   /*
    * B+ tree Constructor.
@@ -148,100 +149,69 @@ final class Btree {
       }
       else{ // no space left  ---- note: now we are on the leaf level
         //we need to
-        //1. split
+        //1. split the current node  --- return a parent node containning following children
         //   - create a new leaf to distribute values;
         //   - create a new parent node to store the mid value
         //   - store children index in the new parent node
-        //2. merge
+        //2. combine with parent
         //   we find that, if the current pointer is a leaf node, this means we are the first level!
         //   we need to go back and update to a new root!
         //
         //   what if we are not leaf? This means we need to go down to find children!
 
-
-        int new_node_pointer = initNode();  //create a new node and return its pointer
-        int split=NODESIZE/2; //split denotes how many values put in the left split node
-        //distribute values
-
-        //overflow value is the one in the middle
-        this.overflowValue=this.nodes[pointer].values[split];
-        //right split node is the new node
-        for (int j=0;j<=split-1;j++){ //let the first several elements
-          this.nodes[new_node_pointer].values[j]=this.nodes[pointer].values[this.nodes[pointer].size-split+j];// equal to the other part of split values;
-        }
-
-        //left split node is the origin node.
-        for (int i=split;i<=this.nodes[pointer].size-1;i++){  //keep the first several elements;
-          this.nodes[pointer].values[i]=0; //make the rest to 0;
-        }
-
-        //now the middle value needs to go overflow --
-        // -- if pointer == root pointer, we create a new root node as the parent node
-        // -- else, we insert the middle to current pointer's parent node
-
-        if (pointer==this.root) {
-          int new_root_pointer = initNode(); //initialize a new root
-          this.nodes[new_root_pointer].values[0]=this.overflowValue;//the root value is overflowed value
-          this.nodes[new_root_pointer].children[0]=pointer; //first children is original left part
-          this.nodes[new_root_pointer].children[1]=new_node_pointer; //second children is original right part
-          return -1;
-        }
-        else{ //if pointer is not a root, insert the overflowed value to current pointer's parent node
-//          this.nodeInsert(this.overflowValue,)
-          System.out.println("need to find current pointer's parent node");
-          return -4;
-        }
+        //comes back with a parent node! this parent node should contains 2 children (finishing distributed values)
+        this.potentialParent=splitNode(pointer);
+        return 1; //1 denotes needing to combine with up level parent
       }
     }
-    else {//the current node is not leaf node;
-      for (int child_node_pointer : this.nodes[pointer].children) { //find the child node for the current node
-        int child = nodeInsert(value, child_node_pointer); //find child value
-        if ((child==-2)||(child==-1)){ //value already exists or everything is done
-          return pointer; //return this node pointer
+    else {//the current node is not leaf node; we use recursion to go deeper -
+      for (int i=0; i<= this.nodes[pointer].size-1;i++){ //find which child to go to
+        if (this.nodes[pointer].values[i]>value){//because values in children value array are increasing, if we find a big value, we need to recursion to its left lower level
+          int recursionValue = nodeInsert(value,this.nodes[pointer].children[i]);//here the childValue is actually a child pointer!
         }
       }
-      if (this.nodes[pointer].size<NODESIZE){ //there is still space in current node
-        //size now is not only the value index but also the pointer index
-        int index = this.nodes[pointer].size;
-        this.nodes[pointer].children[index]=pointer; //insert the new child pointer into teh current node
-        this.nodes[pointer].values[index]=value; //insert the child's first value into the current node;
-        return -1;
+      //what if we go to the rightest handside of current pointer values?  -- i doubt it happens; but in Java we need to write a line to avoid exception
+      int recursionValue=nodeInsert(value,this.nodes[pointer].children[-1]);//we go to the rightest children (this will not happen right? becaus we are not in the leaf node)
+      if (recursionValue>=0){ //not -1, not -2, but comes as a parent needed to be combined
+        return combineWithParent(pointer,this.potentialParent);
       }
-
-      else { //there is no space left
-
-        int new_node_pointer = initNode();//create a new node
-
-        //DISTRIBUTE values and child pointers
-        //given NODESIZE=5, first 2 values go with origin pointer; rest 3 go with new node pointer
-        for (int j=0;j<=NODESIZE/2;j++){ //update new pointer node - j takes 3 values, which are 0,1,2
-          this.nodes[new_node_pointer].values[j]=this.nodes[pointer].values[j+2]; //should be origin node values' index [2,3,4]
-          this.nodes[new_node_pointer].children[j]=createLeaf(); //using createLeaf, put new leaf pointer into child leaf's array
-        }
-
-        for (int i=0;i<NODESIZE;i++){ //update origin pointer node
-          if (i<NODESIZE/2) {
-            continue;
-          }
-          else{ //i = 2,3,4
-            this.nodes[pointer].values[i]=0;  //initialize values
-            this.nodes[pointer].children[i]=0;//initialize children pointers
-          }
-        }
-
-        if (pointer!=this.root){//A way to determine if a node is the root::::: root should be 0
-          return new_node_pointer;
-        }
-
-        else{ //if the node is the root node
-          int new_rootNode_pointer=iniNode();
-          this.root=new_rootNode_pointer;
-          //how to do initialize???
-        }
+      else{//if -1 or -2, we finish everything!
+        return recursionValue;
       }
-      return -1;
     }
   }
+
+  private int combineWithParent(int pointer, Node potentialParent) { // now the pointer is a higher level (comparing to potential Parent node's children)
+
+  }
+
+  private Node splitNode(int pointer) {
+    //   - create a new leaf to distribute values;
+    //   - create a new parent node to store the mid value
+    //   - store children index in the new parent node
+
+    // be careful: we don't return pointer, because it is possible we don't need a new pointer - this new Parent node might be merged with existing node
+    int new_childnode_pointer = initNode();  //create a new node and return its pointer
+    int split=NODESIZE/2; //split denotes how many values put in the left split node
+    //distribute values
+
+    //overflow value is the one in the middle
+    this.overflowValue=this.nodes[pointer].values[split];
+    //right split node is the new node
+    for (int j=0;j<=split-1;j++){ //let the first several elements
+      this.nodes[new_childnode_pointer].values[j]=this.nodes[pointer].values[this.nodes[pointer].size-split+j];// equal to the other part of split values;
+    }
+
+    //left split node is the origin node.
+    for (int i=split;i<=this.nodes[pointer].size-1;i++){  //keep the first several elements;
+      this.nodes[pointer].values[i]=0; //make the rest to 0;
+    }
+
+    //now I need a new parent node. and I should return this node in this splitNode function.
+    Node new_parentNode = new Node();
+    new_parentNode.values=new int[this.NODESIZE];
+  }
+
   public void display(int node){ //display structures under this node
     if (this.isLeaf(this.nodes[node])){
 
