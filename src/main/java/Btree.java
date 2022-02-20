@@ -228,8 +228,35 @@ final class Btree {
       return -1;
     }
   }
-  private void display(int node){ //
+  public void display(int node){ //display structures under this node
+    if (this.isLeaf(this.nodes[node])){
 
+      String valuesStr = "";
+      for (int i=0;i<=this.nodes[node].size-1;i++){
+        valuesStr+=this.nodes[node].values[i];
+        valuesStr+=",";
+      }
+      System.out.println("this is a leaf node with values"+valuesStr);
+    }
+    else{
+      System.out.println("this is a parent node, please see below for its values and leaf values");
+      //first get its values
+      String valuesStr = "";
+      for (int i=0;i<=this.nodes[node].size-1;i++){
+        valuesStr+=this.nodes[node].values[i];
+        valuesStr+=",";
+      }
+
+      System.out.println("first, this node values are"+valuesStr);
+
+      //then get its leaf's values
+      for (int j=0;j<=this.nodes[node].children.length-1;j++){
+        if (this.nodes[node].children[j]!=0){
+          display(j);//use recursion to display
+        }
+      }
+
+    }
   }
 
 //  private boolean contains(int[] values,int value) {
@@ -240,6 +267,7 @@ final class Btree {
 //    }
 //    return false;
 //  }
+
 
 
   /*********** Functions for accessing node  ******************/

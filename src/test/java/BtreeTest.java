@@ -8,6 +8,7 @@
 public final class BtreeTest {
 
   public static void main(String[] args) {
+
     System.out.println("*** B+tree Testing ***\n");
 
     /** Test simple string array. */
@@ -34,6 +35,8 @@ public final class BtreeTest {
     int size = tree.CntValues();
     System.out.println("Stored Nodes: " + size + "\n");
 
+    tree.display(0);
+    tree.display(1);
 
     System.out.println("Finding Values...");
     int found = 0;
