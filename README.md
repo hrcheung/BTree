@@ -2,7 +2,7 @@
 Name: Haoran Zhang
 Email: zhang.haoran1@northeastern.edu
 
-when inserting, we are always doing 3 things:
+**LOGIC: when inserting, we are always doing 3 things:** 
 
 1. direct input 
 
@@ -21,7 +21,8 @@ what if we are not leaf? This means we need to go down to find children!   -----
 
 
 
-WRONG PART THAT CRACKS THE WHOLE PROGRAM:
+**WRONG PART THAT CRACKS THE WHOLE PROGRAM:**
+
 isLeaf():
 when the children array is [0,0,0,0,0], the isLeaf() returns false. but actually it should be true. I tried to use for loop
 *****************************************
