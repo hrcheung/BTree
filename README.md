@@ -17,3 +17,25 @@ when inserting, we are always doing 3 things:
 
 what if we are not leaf? This means we need to go down to find children!   ------ we use recursion
 
+
+
+
+
+WRONG PART THAT CRACKS THE WHOLE PROGRAM:
+isLeaf():
+when the children array is [0,0,0,0,0], the isLeaf() returns false. but actually it should be true. I tried to use for loop
+*****************************************
+    boolean isLeaf(Node node) {
+    for (int value: node.children){
+      if (value>0){
+        return false;
+      }
+    }
+    return true;
+  }
+  
+*****************************************
+it still fails as it warns me NULLPOINTER EXCEPTION (int value can be null)
+
+I also tried to create new split arrays int[] and then use isLeaf, but still failed. I don't know how to let JAVA know "0 is null" in my program :(. 
+
