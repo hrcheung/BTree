@@ -28,7 +28,7 @@ final class Btree {
   /* Number of currently used values. */
   private int cntValues;
   private Node potentialParent; //used to store overflowed parent
-  private int overflowValue;
+
 
   /*
    * B+ tree Constructor.
@@ -168,6 +168,7 @@ final class Btree {
       for (int i=0; i<= this.nodes[pointer].size-1;i++){ //find which child to go to
         if (this.nodes[pointer].values[i]>value){//because values in children value array are increasing, if we find a big value, we need to recursion to its left lower level
           int recursionValue = nodeInsert(value,this.nodes[pointer].children[i]);//here the childValue is actually a child pointer!
+          return recursionValue;
         }
       }
       //what if we go to the rightest handside of current pointer values?  -- i doubt it happens; but in Java we need to write a line to avoid exception
@@ -182,7 +183,39 @@ final class Btree {
   }
 
   private int combineWithParent(int pointer, Node potentialParent) { // now the pointer is a higher level (comparing to potential Parent node's children)
+    //there are 2 cases in combination
+    //1. current pointer node has enough room for potential parent
+    //   - just put potential Parent value & children
+    //2. not enough room, need to do split and combine again! (using recursion)
+    //
+    // note: we return int, which denote the potential value as in Insert function
+    //       we strictly follow putting together - see if exceeding size - then decide whether split
+    this.nodes[pointer].size+=1;//update size
+    if (this.nodes[pointer].size>NODESIZE){ //if
+      this.potentialParent=splitNode(pointer);
+      return 1;
+    }
+    else{
+      int value_to_insert = potentialParent.values[0]; //because we now merge and we know enough room, just need value and children index
+      int children1Index= potentialParent.children[0];
+      int children2Index=potentialParent.children[1];
 
+      //2,4, 5 -> 2,3,4,5, where 3 is the value to be inserted
+      this.nodes[pointer].values[this.nodes[pointer].size]=value_to_insert;
+      Arrays.stream(this.nodes[pointer].values).sorted(); //insert and sort
+
+      // new children1 index should be value_to_insert position; children 2 index is the position +1
+      int target=0;
+      for (int i=0;i<=this.nodes[pointer].size-1;i++){
+        if (this.nodes[pointer].values[i]==value_to_insert){ //we find the new value index
+          target=i;
+          break;
+        }
+      }
+      this.nodes[pointer].children[target]=children1Index; //we update children1
+      this.nodes[pointer].children[target+1]=children2Index; //update children2
+      return -1;
+    }
   }
 
   private Node splitNode(int pointer) {
@@ -196,7 +229,7 @@ final class Btree {
     //distribute values
 
     //overflow value is the one in the middle
-    this.overflowValue=this.nodes[pointer].values[split];
+    int overflowValue=this.nodes[pointer].values[split];
     //right split node is the new node
     for (int j=0;j<=split-1;j++){ //let the first several elements
       this.nodes[new_childnode_pointer].values[j]=this.nodes[pointer].values[this.nodes[pointer].size-split+j];// equal to the other part of split values;
@@ -208,8 +241,15 @@ final class Btree {
     }
 
     //now I need a new parent node. and I should return this node in this splitNode function.
-    Node new_parentNode = new Node();
-    new_parentNode.values=new int[this.NODESIZE];
+    Node potential_parentNode = new Node();
+    potential_parentNode.size=1; //only 1 overflowed value
+    potential_parentNode.values=new int[this.NODESIZE]; //initialize a new value array
+    potential_parentNode.values[0]=overflowValue; //parent value is the overflowed value
+    potential_parentNode.children=new int[this.NODESIZE+1]; //initialize a new children array
+    potential_parentNode.children[0]=pointer; //left pointer
+    potential_parentNode.children[1]=new_childnode_pointer; //right pointer
+    return potential_parentNode; //note: this is a potential parent node - may be merged with existing parent later
+
   }
 
   public void display(int node){ //display structures under this node

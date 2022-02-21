@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="add logic - will delete ifLeaf()==false and implement recursion in next commit">
+    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="create splitNode - first attempt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Btree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Btree.java" afterDir="false" />
     </list>
@@ -69,7 +69,8 @@
       <option name="presentableId" value="Default" />
       <updated>1645346578493</updated>
       <workItem from="1645346581756" duration="1811000" />
-      <workItem from="1645381516542" duration="3428000" />
+      <workItem from="1645381516542" duration="3717000" />
+      <workItem from="1645395899850" duration="3894000" />
     </task>
     <task id="LOCAL-00001" summary="second crashed attempts...">
       <created>1645348356983</created>
@@ -85,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645383802176</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="create splitNode - first attempt">
+      <created>1645385831609</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1645385831609</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +115,7 @@
     <MESSAGE value="second crashed attempts..... so sad" />
     <MESSAGE value="second crashed attempts..." />
     <MESSAGE value="add logic - will delete ifLeaf()==false and implement recursion in next commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="add logic - will delete ifLeaf()==false and implement recursion in next commit" />
+    <MESSAGE value="create splitNode - first attempt" />
+    <option name="LAST_COMMIT_MESSAGE" value="create splitNode - first attempt" />
   </component>
 </project>
