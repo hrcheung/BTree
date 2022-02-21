@@ -253,25 +253,23 @@ final class Btree {
   }
 
   public void display(int node){ //display structures under this node
-    if (this.isLeaf(this.nodes[node])){
+    if (this.isLeaf(this.nodes[node])){ //directly display the values array because no children
 
       String valuesStr = "";
       for (int i=0;i<=this.nodes[node].size-1;i++){
         valuesStr+=this.nodes[node].values[i];
         valuesStr+=",";
       }
-      System.out.println("this is a leaf node with values"+valuesStr);
+      System.out.println("this is a leaf node "+node+ " with values \n "+'['+valuesStr);
     }
     else{
-      System.out.println("this is a parent node, please see below for its values and leaf values");
-      //first get its values
+      //first get this parent node's values
       String valuesStr = "";
       for (int i=0;i<=this.nodes[node].size-1;i++){
         valuesStr+=this.nodes[node].values[i];
         valuesStr+=",";
       }
-
-      System.out.println("first, this node values are"+valuesStr);
+      System.out.println("this is a parent node "+node+ " with values \n "+'['+valuesStr);
 
       //then get its leaf's values
       for (int j=0;j<=this.nodes[node].children.length-1;j++){
