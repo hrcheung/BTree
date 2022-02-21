@@ -23,7 +23,8 @@ final class Btree {
   private int cntNodes;
 
   /* Pointer to the root node. */
-  private int root;
+  public int root;
+
 
   /* Number of currently used values. */
   private int cntValues;
@@ -71,10 +72,13 @@ final class Btree {
       System.out.println("nothing was inserted");
     }
     else{ //potentialValue ==1, root node is full, need to be splitted.
-      //here we only deal with overflow associated wit root --- all other overflow under root level should be solved already
-      System.out.println("root node is full, need to be splitted");
-//      int new_root_pointer = initNode(); //initialize a new root
-//      this.nodes[new_root_pointer].values[0]=this.nodes[]
+          // we come to this only if we finish the Node potentialParent!
+      int new_root_pointer=initNode(); //get a new pointer for this new root
+      this.nodes[new_root_pointer]=this.potentialParent; //by doing this, values and children has been finished
+      this.root=new_root_pointer;   //update root pointer
+      cntValues+=1;
+      System.out.println("Update Root!");
+      //this.display(this.root);
     }
   }
 
@@ -172,7 +176,7 @@ final class Btree {
         }
       }
       //what if we go to the rightest handside of current pointer values?  -- i doubt it happens; but in Java we need to write a line to avoid exception
-      int recursionValue=nodeInsert(value,this.nodes[pointer].children[-1]);//we go to the rightest children (this will not happen right? becaus we are not in the leaf node)
+      int recursionValue=nodeInsert(value,this.nodes[pointer].children[this.nodes[pointer].size]);//we go to the rightest children (this will not happen right? becaus we are not in the leaf node)
       if (recursionValue>=0){ //not -1, not -2, but comes as a parent needed to be combined
         return combineWithParent(pointer,this.potentialParent);
       }
@@ -201,7 +205,7 @@ final class Btree {
       int children2Index=potentialParent.children[1];
 
       //2,4, 5 -> 2,3,4,5, where 3 is the value to be inserted
-      this.nodes[pointer].values[this.nodes[pointer].size]=value_to_insert;
+      this.nodes[pointer].values[this.nodes[pointer].size-1]=value_to_insert;
       Arrays.stream(this.nodes[pointer].values).sorted(); //insert and sort
 
       // new children1 index should be value_to_insert position; children 2 index is the position +1
@@ -231,14 +235,18 @@ final class Btree {
     //overflow value is the one in the middle
     int overflowValue=this.nodes[pointer].values[split];
     //right split node is the new node
-    for (int j=0;j<=split-1;j++){ //let the first several elements
-      this.nodes[new_childnode_pointer].values[j]=this.nodes[pointer].values[this.nodes[pointer].size-split+j];// equal to the other part of split values;
-    }
+
+    System.arraycopy(this.nodes[pointer].values,this.nodes[pointer].size-split,this.nodes[new_childnode_pointer].values,0,split);
+    this.nodes[new_childnode_pointer].size=split; //remember to update size!
 
     //left split node is the origin node.
-    for (int i=split;i<=this.nodes[pointer].size-1;i++){  //keep the first several elements;
-      this.nodes[pointer].values[i]=0; //make the rest to 0;
-    }
+    int[] leftSplitValues= new int[NODESIZE]; //we had to create a new int[], as isLeaf use == null to determine, but 0 != null; null cannot be compared
+    System.arraycopy(this.nodes[pointer].values,0,leftSplitValues,0,split);
+    this.nodes[pointer].values = leftSplitValues;
+//    for (int i=split;i<=this.nodes[pointer].size-1;i++){  //keep the first several elements;
+//      this.nodes[pointer].values[i]= 0; //make the rest to 0;
+//    }
+    this.nodes[pointer].size=split; //remember to update size!
 
     //now I need a new parent node. and I should return this node in this splitNode function.
     Node potential_parentNode = new Node();
@@ -257,8 +265,14 @@ final class Btree {
 
       String valuesStr = "";
       for (int i=0;i<=this.nodes[node].size-1;i++){
-        valuesStr+=this.nodes[node].values[i];
-        valuesStr+=",";
+        if (this.nodes[node].values[i]==0){
+          valuesStr+="0";
+          valuesStr+=",";
+        }
+        else{
+          valuesStr+=this.nodes[node].values[i];
+          valuesStr+=",";
+        }
       }
       System.out.println("this is a leaf node "+node+ " with values \n "+'['+valuesStr);
     }
@@ -300,7 +314,12 @@ final class Btree {
    *         (Leaf node -> a missing children)
    */
   boolean isLeaf(Node node) {
-    return node.children == null;
+    for (int value: node.children){
+      if (value>0){
+        return false;
+      }
+    }
+    return true;
   }
 
   /*

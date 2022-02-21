@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="create combineWithParent method">
+    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="try debug; failed in isLeaf() part">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Btree.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Btree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Btree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Btree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BtreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BtreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +55,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RunManager">
     <configuration name="BtreeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -70,7 +81,7 @@
       <updated>1645346578493</updated>
       <workItem from="1645346581756" duration="1811000" />
       <workItem from="1645381516542" duration="3717000" />
-      <workItem from="1645395899850" duration="4335000" />
+      <workItem from="1645395899850" duration="9145000" />
     </task>
     <task id="LOCAL-00001" summary="second crashed attempts...">
       <created>1645348356983</created>
@@ -100,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645403433432</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="create display method">
+      <created>1645403921550</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1645403921550</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +142,27 @@
     <MESSAGE value="add logic - will delete ifLeaf()==false and implement recursion in next commit" />
     <MESSAGE value="create splitNode - first attempt" />
     <MESSAGE value="create combineWithParent method" />
-    <option name="LAST_COMMIT_MESSAGE" value="create combineWithParent method" />
+    <MESSAGE value="create display method" />
+    <MESSAGE value="try debug; failed in isLeaf() part" />
+    <option name="LAST_COMMIT_MESSAGE" value="try debug; failed in isLeaf() part" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Btree.java</url>
+          <line>178</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="this.nodes[new_childnode_pointer].values" language="JAVA" />
+        <watch expression="this.nodes[pointer].values" language="JAVA" />
+        <watch expression="this.nodes[root]" language="JAVA" />
+        <watch expression="overflowValue" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
