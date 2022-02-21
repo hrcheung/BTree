@@ -314,12 +314,7 @@ final class Btree {
    *         (Leaf node -> a missing children)
    */
   boolean isLeaf(Node node) {
-    for (int value: node.children){
-      if (value>0){
-        return false;
-      }
-    }
-    return true;
+    return node.children==null;
   }
 
   /*
