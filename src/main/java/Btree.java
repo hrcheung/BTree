@@ -264,7 +264,7 @@ final class Btree {
 
     //recursion
 
-    //break condition
+    //if leaf, then break condition
     if (this.isLeaf(this.nodes[node])){ //directly display the values array because no children
 
       String valuesStr = "";
