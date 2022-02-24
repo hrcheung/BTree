@@ -27,8 +27,8 @@ isLeaf():
 when the children array is [0,0,0,0,0], the isLeaf() returns false. but actually it should be true. I tried to use for loop
 *****************************************
     boolean isLeaf(Node node) {
-    for (int value: node.children){
-      if (value>0){
+    for (int child_pointer: node.children){
+      if (child_pointer>0){
         return false;
       }
     }
