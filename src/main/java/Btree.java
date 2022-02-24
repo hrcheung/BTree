@@ -261,6 +261,10 @@ final class Btree {
   }
 
   public void display(int node){ //display structures under this node
+
+    //recursion
+
+    //break condition
     if (this.isLeaf(this.nodes[node])){ //directly display the values array because no children
 
       String valuesStr = "";
@@ -276,6 +280,8 @@ final class Btree {
       }
       System.out.println("this is a leaf node "+node+ " with values \n "+'['+valuesStr);
     }
+
+    //use recursion
     else{
       //first get this parent node's values
       String valuesStr = "";
