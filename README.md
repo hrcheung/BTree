@@ -4,7 +4,7 @@ Email: zhang.haoran1@northeastern.edu
 
 **LOGIC: when inserting, we are always doing 3 things:** 
 
-1. direct input 
+1. direct put values to the node 
 
 2. split (2 new nodes ; we return a parent node that wait to be combined)
  - create a new leaf to distribute values;
