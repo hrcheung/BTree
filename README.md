@@ -4,7 +4,7 @@ Email: zhang.haoran1@northeastern.edu
 
 **LOGIC: when inserting, we are always doing 3 things:** 
 
-1. direct input 
+1. direct put values to the node 
 
 2. split (2 new nodes ; we return a parent node that wait to be combined)
  - create a new leaf to distribute values;
@@ -27,8 +27,8 @@ isLeaf():
 when the children array is [0,0,0,0,0], the isLeaf() returns false. but actually it should be true. I tried to use for loop
 *****************************************
     boolean isLeaf(Node node) {
-    for (int value: node.children){
-      if (value>0){
+    for (int child_pointer: node.children){
+      if (child_pointer>0){
         return false;
       }
     }
