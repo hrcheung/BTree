@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="try isLeaf()">
+    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="display - recursion">
       <change beforePath="$PROJECT_DIR$/../CS7280_Lab" beforeDir="false" afterPath="$PROJECT_DIR$/../CS7280_Lab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Btree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Btree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/BtreeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/BtreeTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Btree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Btree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BtreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BtreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +77,7 @@
       <workItem from="1645381516542" duration="3717000" />
       <workItem from="1645395899850" duration="9867000" />
       <workItem from="1645480267380" duration="758000" />
-      <workItem from="1645732190082" duration="341000" />
+      <workItem from="1645732190082" duration="3394000" />
     </task>
     <task id="LOCAL-00001" summary="second crashed attempts...">
       <created>1645348356983</created>
@@ -159,14 +163,16 @@
     <MESSAGE value="try debug; failed in isLeaf() part" />
     <MESSAGE value="try display" />
     <MESSAGE value="try isLeaf()" />
-    <option name="LAST_COMMIT_MESSAGE" value="try isLeaf()" />
+    <MESSAGE value="display" />
+    <MESSAGE value="display - recursion" />
+    <option name="LAST_COMMIT_MESSAGE" value="display - recursion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Btree.java</url>
-          <line>178</line>
+          <line>179</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

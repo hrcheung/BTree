@@ -10,6 +10,7 @@
  */
 
 import java.util.Arrays;
+import java.util.Objects;
 
 final class Btree {
 
@@ -256,6 +257,7 @@ final class Btree {
     potential_parentNode.children=new int[this.NODESIZE+1]; //initialize a new children array
     potential_parentNode.children[0]=pointer; //left pointer
     potential_parentNode.children[1]=new_childnode_pointer; //right pointer
+
     return potential_parentNode; //note: this is a potential parent node - may be merged with existing parent later
 
   }
@@ -321,7 +323,19 @@ final class Btree {
    */
   boolean isLeaf(Node node) {
     return node.children==null;
+//    if (Integer. != node.children[0]){
+//        int
+//    }
+//    for (int child_pointer: node.children){
+//      if (child_pointer>0){
+//        return false;
+//      }
+//    }
+//    return true;
+
+
   }
+
 
   /*
    * initNode(): Initialize a new node and returns the pointer.
