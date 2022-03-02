@@ -56,8 +56,11 @@ final class Btree {
    */
   public boolean Lookup(int value) {return nodeLookup(value, root);}
 
+
   /*
    * Insert(int value)
+   *    - If -1 is returned, the value is inserted and increase cntValues.
+   *    - If -2 is returned, the value already exists.
    */
   public void Insert(int value) {
     int potentialValue=nodeInsert(value,root);
@@ -178,7 +181,7 @@ final class Btree {
       }
       //what if we go to the rightest handside of current pointer values?  -- i doubt it happens; but in Java we need to write a line to avoid exception
       int recursionValue=nodeInsert(value,this.nodes[pointer].children[this.nodes[pointer].size]);//we go to the rightest children (this will not happen right? becaus we are not in the leaf node)
-      if (recursionValue>=0){ //not -1, not -2, but comes as a parent needed to be combined
+      if (recursionValue==1){ //not -1, not -2, but comes as a parent needed to be combined
         return combineWithParent(pointer,this.potentialParent);
       }
       else{//if -1 or -2, we finish everything!

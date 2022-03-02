@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="try to debug agin">
+    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="try to debug again">
       <change beforePath="$PROJECT_DIR$/../CS7280_Lab" beforeDir="false" afterPath="$PROJECT_DIR$/../CS7280_Lab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Btree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Btree.java" afterDir="false" />
@@ -75,7 +75,7 @@
       <workItem from="1645480267380" duration="758000" />
       <workItem from="1645732190082" duration="3394000" />
       <workItem from="1646094374720" duration="62000" />
-      <workItem from="1646252904270" duration="91000" />
+      <workItem from="1646252904270" duration="748000" />
     </task>
     <task id="LOCAL-00001" summary="second crashed attempts...">
       <created>1645348356983</created>
@@ -164,14 +164,15 @@
     <MESSAGE value="display" />
     <MESSAGE value="display - recursion" />
     <MESSAGE value="try to debug agin" />
-    <option name="LAST_COMMIT_MESSAGE" value="try to debug agin" />
+    <MESSAGE value="try to debug again" />
+    <option name="LAST_COMMIT_MESSAGE" value="try to debug again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Btree.java</url>
-          <line>181</line>
+          <line>184</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
