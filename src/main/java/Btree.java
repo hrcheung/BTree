@@ -58,18 +58,18 @@ final class Btree {
 
   /*
    * Insert(int value)
-   *    - If -1 is returned, the value is inserted and increase cntValues.
-   *    - If -2 is returned, the value already exists.
    */
   public void Insert(int value) {
     int potentialValue=nodeInsert(value,root);
     //System.out.println("potential Value is "+potentialValue);
 
     if(potentialValue == -1) {
+      /* everything is done */
       cntValues++;
       System.out.println("insert succeed");
     }
     else if (potentialValue==-2){ //for testing purpose
+      /* means that nothing was inserted */
       System.out.println("nothing was inserted");
     }
     else{ //potentialValue ==1, root node is full, need to be splitted.
