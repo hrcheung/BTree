@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="try to debug again">
+    <list default="true" id="65710a9a-904d-47e8-a205-b2ebf8943c9d" name="Changes" comment="test combineFunction">
       <change beforePath="$PROJECT_DIR$/../CS7280_Lab" beforeDir="false" afterPath="$PROJECT_DIR$/../CS7280_Lab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Btree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Btree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestProject1" beforeDir="false" afterPath="$PROJECT_DIR$/../TestProject1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +74,7 @@
       <workItem from="1645480267380" duration="758000" />
       <workItem from="1645732190082" duration="3394000" />
       <workItem from="1646094374720" duration="62000" />
-      <workItem from="1646252904270" duration="748000" />
+      <workItem from="1646252904270" duration="879000" />
     </task>
     <task id="LOCAL-00001" summary="second crashed attempts...">
       <created>1645348356983</created>
@@ -133,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645480425228</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="test combineFunction">
+      <created>1646254562021</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1646254562021</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +171,8 @@
     <MESSAGE value="display - recursion" />
     <MESSAGE value="try to debug agin" />
     <MESSAGE value="try to debug again" />
-    <option name="LAST_COMMIT_MESSAGE" value="try to debug again" />
+    <MESSAGE value="test combineFunction" />
+    <option name="LAST_COMMIT_MESSAGE" value="test combineFunction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
